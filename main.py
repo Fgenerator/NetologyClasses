@@ -130,17 +130,36 @@ def collect_all_eggs():
 
 def shear_sheeps():
     if not sheep1.shear_status and not sheep2.shear_status:
-        print('Стрежем овец.')
+        print('Стрижем овец.')
         sheep1.shear()
         sheep2.shear()
     elif sheep1.shear_status and not sheep2.shear_status:
-        print(f'Стрежем овцу {sheep2.name}, овца {sheep1.name} уже подстрижена!')
+        print(f'Стрижем овцу {sheep2.name}, овца {sheep1.name} уже подстрижена!')
         sheep2.shear()
     elif not sheep1.shear_status and sheep2.shear_status:
-        print(f'Стрежем овцу {sheep1.name}, овца {sheep2.name} уже подстрижена!')
+        print(f'Стрижем овцу {sheep1.name}, овца {sheep2.name} уже подстрижена!')
         sheep1.shear()
     else:
         print('Овцы уже подстрижены.')
+
+
+def calculate_sum_weight(animals):
+    sum_weight = 0
+    for animal in animals:
+        sum_weight += animal.weight
+    return sum_weight
+
+
+def calculate_heaviest_animal(animals):
+    weight = 0
+    name = ''
+    animal_class = ''
+    for animal in animals:
+        if animal.weight > weight:
+            weight = animal.weight
+            name = animal.name
+            animal_class = animal.__class__.__name__
+    return animal_class, name
 
 
 def main():
@@ -166,6 +185,12 @@ def main():
     print()
     shear_sheeps()
     print()
+
+    print('Посчитаем суммарный вес всех животных и определим, какое животное имеет самый большой вес.')
+    print()
+    print(f'Суммарный вес животных: {calculate_sum_weight(animals)}')
+    print()
+    print(f'Самое тяжёлое животное - {calculate_heaviest_animal(animals)[0]} {calculate_heaviest_animal(animals)[1]}')
 
 
 goose1 = Goose()  # Серый
