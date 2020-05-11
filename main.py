@@ -119,13 +119,11 @@ def calculate_sum_weight(animals):
 def calculate_heaviest_animal(animals):
     weight = 0
     name = ''
-    animal_class = ''
     for animal in animals:
         if animal.weight > weight:
             weight = animal.weight
             name = animal.name
-            animal_class = animal.__class__.__name__
-    return animal_class, name
+    return name
 
 
 def main():
@@ -154,7 +152,7 @@ def main():
 
     print('Посчитаем суммарный вес всех животных и определим, какое животное имеет самый большой вес.\n')
     print(f'Суммарный вес животных: {calculate_sum_weight(animals)}\n')
-    print(f'Самое тяжёлое животное - {calculate_heaviest_animal(animals)[0]} {calculate_heaviest_animal(animals)[1]}')
+    print(f'Самое тяжёлое животное - {calculate_heaviest_animal(animals)}')
 
 
 goose1 = Goose()  # Серый

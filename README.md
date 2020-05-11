@@ -1,5 +1,5 @@
 # Netology Classes Homework
-#####by Evgeny Ermakov
+####by Evgeny Ermakov
 
 ### Домашнее задание к лекции 2.2 «Классы и их применение в Python»
 
